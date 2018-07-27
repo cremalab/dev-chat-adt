@@ -31,7 +31,7 @@ type product = {
  */
 
 /* we can't do this (easily) in js */
-type sum =
+type bool =
   | This
   | That;
 

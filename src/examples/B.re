@@ -4,7 +4,8 @@
 
 type action =
   | Increment
-  | Decrement;
+  | Decrement
+  | ResetTo(int);
 /*   ^---type     ^------------^-constructors */
 
 /*
@@ -18,6 +19,7 @@ let reducer = (s: int, a: action) =>
   switch (a) {
   | Increment => s + 1
   | Decrement => s - 1
+  | ResetTo(v) => v
   };
 
 /*
@@ -28,4 +30,4 @@ let reducer = (s: int, a: action) =>
 /*
    To actually use sum types you use the constructor
  */
-let result = reducer(state, Increment) |> string_of_int;
+let result = ResetTo(10) |> reducer(state) |> string_of_int;
